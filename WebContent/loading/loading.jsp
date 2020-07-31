@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${not empty sessionScope.id}">
-	
-</c:if>
+
 </body>
 </html>

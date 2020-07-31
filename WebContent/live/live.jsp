@@ -26,7 +26,7 @@ function live() {
 		<h1 style="font: bold;">My diary..</h1>
 		<div class="txtb">
 			<label>name :</label>
-			<input type="text" name="name" value="" placeholder="Enter your Name">
+			<input type="text" name="${sessionScope.id }" value="" placeholder="Enter your Name" readonly="readonly">
 		</div>
 		<div class="txtb">
 			<label>title :</label>

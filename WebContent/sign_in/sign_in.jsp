@@ -17,9 +17,9 @@
 					<input type="password" name="pwd" placeholder="Pssword">  
 					<input type="submit" value="Login">
 			</form>
-			<a href="manager_in">관리자로 로그인</a><hr>
+			<a href="manager_in.jsp">관리자로 로그인</a><hr>
 			<a href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">Creating an account.</a><br>
-			<a href="">Forget Password.</a>
+			<a href="forgetPassword.jsp">Forget Password.</a>
 		</div>
 	</div>
 </section>

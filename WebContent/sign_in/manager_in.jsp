@@ -17,8 +17,9 @@
 					<input type="password" name="pwd" placeholder="Pssword">  
 					<input type="submit" value="Login">
 			</form>
-			<a href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">Creating an account.</a><br>
-			<a href="">Forget Password.</a>
+			<a href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">Creating a Manager.</a><br>
+			<a href="${pageContext.request.contextPath }/sign_in/forgetPassword.jsp">Forget Password.</a><hr>
+			<a href="${pageContext.request.contextPath }/in.in.jsp">home.</a>
 		</div>
 	</div>
 </section>

@@ -5,7 +5,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../sign_in/style.css">
 </head>
 <body>
 <section>
@@ -16,7 +15,7 @@
 				<input type="text" placeholder="your id." name="id">
 				<input type="text" placeholder="your password." name="pwd">
 				<input type="text" placeholder="your nickname." name="name">
-				<input type="hidden" name="type" value="99">
+				<input type="hidden" name="type" value="1">
 				<input type="submit" value="submit">
 			</form>
 		</div>
