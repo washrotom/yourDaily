@@ -14,12 +14,13 @@
 				<h1>Sign in.</h1>
 			<form action="${pageContext.request.contextPath }/SigninController" method="post">
 					<input type="text" name="id" placeholder="ID">
-					<input type="password" name="pwd" placeholder="Pssword">  
+					<input type="password" name="pwd" placeholder="Password">  
 					<input type="submit" value="Login">
 			</form>
 			<a href="manager_in.jsp">관리자로 로그인</a><hr>
 			<a href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">Creating an account.</a><br>
-			<a href="forgetPassword.jsp">Forget Password.</a>
+			<a href="forgetPassword.jsp">Forget Password.</a><hr>
+			<a href="${pageContext.request.contextPath }/in/in.jsp">home.</a>
 		</div>
 	</div>
 </section>

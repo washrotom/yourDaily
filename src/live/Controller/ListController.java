@@ -40,9 +40,9 @@ public class ListController extends HttpServlet {
 		response.setCharacterEncoding("euc-kr");
 
 		liveService service = new liveServiceImpl();
-		String name = request.getParameter("name");
+		String id = request.getParameter("id");
 
-		ArrayList<LiveVO> list = (ArrayList<LiveVO>) service.getAll(name);
+		ArrayList<LiveVO> list = (ArrayList<LiveVO>) service.getAll(id);
 
 		request.setAttribute("list", list);
 

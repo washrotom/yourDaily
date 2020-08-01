@@ -35,18 +35,18 @@ public class LiveController extends HttpServlet {
 		response.setContentType("text/html; charset=EUC-KR");
 		response.setCharacterEncoding("EUC-KR");
 		
-		live.Service.liveServiceImpl service = new live.Service.liveServiceImpl();
+		live.Service.liveService service = new live.Service.liveServiceImpl();
 		HttpSession session = request.getSession();
 		boolean flag = false;
 		
-		String name = request.getParameter("name");
+		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		LiveVO l = new LiveVO(name, title, content);
+		LiveVO l = new LiveVO(0, id, null, title, content, null);
 		service.addLive(l);
 		
 		if(l != null) {
-			session.setAttribute("name", name);
+			session.setAttribute("id", id);
 			flag = true;
 		}
 		session.setAttribute("flag", flag);

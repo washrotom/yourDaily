@@ -6,9 +6,9 @@ import VO.LiveVO;
 
 public interface liveDao {
 	public void insert(LiveVO l);
-	public LiveVO select(String name);
-	List selectAll(String name);
+	public LiveVO select(String id);
+	List selectAll(String id);
 	public void update(LiveVO l);
-	public void delete(String name, String title);
+	public void delete(String id, String title);
 
 }

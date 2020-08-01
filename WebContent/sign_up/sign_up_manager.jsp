@@ -18,6 +18,7 @@
 				<input type="hidden" name="type" value="1">
 				<input type="submit" value="submit">
 			</form>
+			<hr><a href="${pageContext.request.contextPath }/in/in.jsp">home.</a>
 		</div>
 	</div>
 </section>

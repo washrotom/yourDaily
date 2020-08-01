@@ -22,12 +22,12 @@ public class liveDaoImpl implements liveDao{
 	public void insert(LiveVO l) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into live values(?,?,?)";
+		String sql = "insert into live values(live_num.nextval,?,sysdate,?,?,null)";
 		
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, l.getName());
+			pstmt.setString(1, l.getId());
 			pstmt.setString(2, l.getTitle());
 			pstmt.setString(3, l.getContent());
 			
@@ -47,19 +47,19 @@ public class liveDaoImpl implements liveDao{
 	}
 
 	@Override
-	public LiveVO select(String name) {
+	public LiveVO select(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		LiveVO vo = null;
-		String sql = "select * from live where name=?";
+		String sql = "select * from live where id=?";
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				return new LiveVO(rs.getString(1), rs.getString(2), rs.getString(3));
+				return new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -76,23 +76,23 @@ public class liveDaoImpl implements liveDao{
 	}
 
 	@Override
-	public List selectAll(String name) {
+	public List selectAll(String id) {
 
 		Connection conn = null;
 		ResultSet rs = null;
 		ArrayList<LiveVO> list = new ArrayList<LiveVO>();
 
-		String sql = "select * from live where name = ? order by title";
+		String sql = "select * from live where id = ? order by title";
 		PreparedStatement pstmt = null;
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
 			
 			while (rs.next()) {
-				list.add(new LiveVO(rs.getString(1), rs.getString(2), rs.getString(3)));
+				list.add(new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -118,7 +118,7 @@ public class liveDaoImpl implements liveDao{
 	}
 
 	@Override
-	public void delete(String name, String title) {
+	public void delete(String id, String title) {
 		// TODO Auto-generated method stub
 		
 	}

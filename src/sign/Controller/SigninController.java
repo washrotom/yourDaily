@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import VO.SignVO;
+import live.Service.liveService;
+import live.Service.liveServiceImpl;
 import sign.Service.signService;
 import sign.Service.signServiceImpl;
 
@@ -43,6 +45,7 @@ public class SigninController extends HttpServlet {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		SignVO vo = service.getSignVO(id);
+		
 		
 		if(vo!=null&&pwd.equals(vo.getPwd())) {
 			session.setAttribute("id", id);

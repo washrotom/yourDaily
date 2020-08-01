@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/confirm/style.css" type="text/css">
 </head>
 <body>
-	<h3>yourdiary..</h3>
-	<a href="${pageContext.request.contextPath }/live/live.jsp">write</a>
-	<br>
-		<ul>
+<c:if test="${not empty sessionScope.id }">
+		<ul>			
+			<h1 style="margin: 4px 0; padding-left: 15px">${sessionScope.id }님의 일기목록</h1>
+			<br>
 			<li><a href="#red">1 Jan</a></li>
 			<li><a href="#green">2 Feb</a></li>
 			<li><a href="#blue">3 Mar</a></li>
@@ -29,32 +29,70 @@
 			<li><a href="#yellow">12 Dec</a></li>
 			<li><a href="${pageContext.request.contextPath }/live/live.jsp">write</a></li>
 		</ul>
+</c:if>
+<c:if test="${empty sessionScope.id }">
+		<ul>			
+			<h1 style="margin: 4px 0; padding-left: 15px">${list[0].id }님의 일기목록</h1>
+			<br>
+			<li><a href="#red">1 Jan</a></li>
+			<li><a href="#green">2 Feb</a></li>
+			<li><a href="#blue">3 Mar</a></li>
+			<li><a href="#yellow">4 Apr</a></li>
+			<li><a href="#magenta">5 May</a></li>
+			<li><a href="#red">6 Jun</a></li>
+			<li><a href="#red">7 Jul</a></li>
+			<li><a href="#green">8 Aug</a></li>
+			<li><a href="#blue">9 Sep</a></li>
+			<li><a href="#yellow">10 Oct</a></li>
+			<li><a href="#magenta">11 Nov</a></li>
+			<li><a href="#yellow">12 Dec</a></li>
+			<li><a href="${pageContext.request.contextPath }/live/live.jsp">write</a></li>
+		</ul>
+</c:if>
+
 
 
 	<c:if test="${not empty list }" >
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/example/menu_style.css" type="text/css">
+		<section>
 			<c:forEach var="b" items="${list }">
-				<section>
-					<div class="card">
-						<div class="box">
-							<div class="imgBx">
-								<img src="../img/sky.jpg"><br>
-								<h1>${b.title }</h1>
-							</div>
-							<div class="contentBx">
-								<div>
-									<h2>Post Title</h2>
-									<p>content content content contentcontent content content content contentcontentcontentcontentcontent</p> 
-								</div>
+				<div class="card">
+					<div class="box">
+						<div class="imgBx">
+							<img src="${pageContext.request.contextPath }/img/sky.jpg"><br>
+							<h1>${b.title }</h1>
+						</div>
+						<div class="contentBx">
+							<div>
+								<h2>${b.title }</h2>
+									<p>${b.content }</p> 
+							<a href="${pageContext.request.contextPath }/in/in.jsp"/>
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
 			</c:forEach>
+		</section>
 	</c:if>
-	<c:if test="${ empty list }">
-		<li>작성된 글이 없습니다.</li>
-	</c:if>
+								
+							<c:if test="${ empty list }">
+					<link rel="stylesheet" href="${pageContext.request.contextPath }/example/menu_style.css" type="text/css">
+		<section>
+				<div class="card">
+					<div class="box">
+						<div class="imgBx">
+							<img src="${pageContext.request.contextPath }/img/sky.jpg"><br>
+						</div>
+						<div class="contentBx">
+							<div>
+								<h2>Empty.</h2>
+									<p>empty empty empty empty empty empty</p> 
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+							</c:if>
 				<a href="${pageContext.request.contextPath}/
 				ReadController?name=${b.name}">${b.title }</a>
 </body>

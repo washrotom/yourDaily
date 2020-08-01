@@ -25,8 +25,8 @@ function live() {
 	<div class="live-form">
 		<h1 style="font: bold;">My diary..</h1>
 		<div class="txtb">
-			<label>name :</label>
-			<input type="text" name="${sessionScope.id }" value="" placeholder="Enter your Name" readonly="readonly">
+			<label>id :</label>
+			<input type="text" name="id" value="${sessionScope.id }" placeholder="${sessionScope.id }" readonly="readonly">
 		</div>
 		<div class="txtb">
 			<label>title :</label>

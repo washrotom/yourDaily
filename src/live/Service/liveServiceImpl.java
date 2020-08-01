@@ -21,13 +21,13 @@ public class liveServiceImpl implements liveService{
 	}
 
 	@Override
-	public LiveVO getLive(String name) {
-		return dao.select(name);
+	public LiveVO getLive(String id) {
+		return dao.select(id);
 	}
 
 	@Override
-	public List getAll(String name) {
-		return dao.selectAll(name);
+	public List getAll(String id) {
+		return dao.selectAll(id);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class liveServiceImpl implements liveService{
 	}
 
 	@Override
-	public void delLive(String name, String title) {
-		dao.delete(name, title);
+	public void delLive(String id, String title) {
+		dao.delete(id, title);
 	}
 
 }
