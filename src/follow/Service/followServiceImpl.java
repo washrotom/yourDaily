@@ -2,6 +2,7 @@ package follow.Service;
 
 import java.util.List;
 
+import VO.FollowVO;
 import follow.DAO.followDao;
 import follow.DAO.followDaoImpl;
 
@@ -14,8 +15,8 @@ public class followServiceImpl implements followService{
 		dao = new followDaoImpl(); 
 	}
 	@Override
-	public void addFollow(String id) {
-		// TODO Auto-generated method stub
+	public void addFollow(FollowVO vo) {
+		dao.insert(vo);
 		
 	}
 
@@ -26,9 +27,12 @@ public class followServiceImpl implements followService{
 	}
 
 	@Override
-	public List listFollow(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List listFollowing(String myid) {
+		return dao.selectFollowing(myid);
+	}
+	@Override
+	public List listFollower(String id) {
+		return dao.selectFollower(id);
 	}
 
 	@Override

@@ -45,6 +45,7 @@ public class ListController extends HttpServlet {
 		ArrayList<LiveVO> list = (ArrayList<LiveVO>) service.getAll(id);
 
 		request.setAttribute("list", list);
+		request.setAttribute("size", list.size());
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/confirm/list.jsp");
 		if (dispatcher != null) {

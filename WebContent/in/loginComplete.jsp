@@ -35,7 +35,7 @@
 			<a href="${pageContext.request.contextPath }/sign_in/manager_in.jsp">관리자로 로그인</a><hr>
 			<a href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">Creating an account.</a><br>
 			<a href="${pageContext.request.contextPath }/sign_in/forgetPassword.jsp">Forget Password.</a><hr>
-			<a href="${pageContext.request.contextPath }/in.in.jsp">home.</a>
+			<a href="${pageContext.request.contextPath }/in/in.jsp">home.</a>
 		</div>
 	</div>
 </section>

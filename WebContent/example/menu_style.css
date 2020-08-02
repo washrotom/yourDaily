@@ -25,9 +25,9 @@ section {
 
 section .card {
 	position: relative;
-	width: 310px;
-	height: 310px;
-	margin: 20px;
+	width: 290px;
+	height: 290px;
+	margin: 25px;
 	transform-style: preserve-3d;
 	perspective: 1000px;
 }

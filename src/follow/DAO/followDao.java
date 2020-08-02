@@ -2,9 +2,12 @@ package follow.DAO;
 
 import java.util.List;
 
+import VO.FollowVO;
+
 public interface followDao {
-	public void add(String id);
+	public void insert(FollowVO vo);
 	public void accept(String id);
-	List select(String id);
+	List selectFollowing(String myid);
+	List selectFollower(String id);
 	public void delete(String id);
 }

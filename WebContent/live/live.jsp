@@ -9,7 +9,7 @@
 <script type="text/javascript">
 function a() {
 	alert("홈으로 이동하시겠습니까?");
-	location.href='${pageContext.request.contextPath }/in/in.jsp'
+	location.href='${pageContext.request.contextPath }/in/in.jsp';
 }
 
 function live() {

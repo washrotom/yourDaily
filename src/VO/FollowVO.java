@@ -3,16 +3,18 @@ package VO;
 public class FollowVO {
 	private int num;
 	private String id;
-	private String following;
-	private String follower;
+	private int following = 0;
+	private int follower = 0;
+	private String myid;
 	
 	public FollowVO() {
 		
 	}
 
-	public FollowVO(int num, String id, String following, String follower) {
+	public FollowVO(int num, String id, int following, int follower, String myid) {
 		super();
 		this.num = num;
+		this.myid = myid;
 		this.id = id;
 		this.following = following;
 		this.follower = follower;
@@ -26,6 +28,14 @@ public class FollowVO {
 		this.num = num;
 	}
 
+	public String getMyid() {
+		return myid;
+	}
+
+	public void setMyid(String myid) {
+		this.myid = myid;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -34,24 +44,26 @@ public class FollowVO {
 		this.id = id;
 	}
 
-	public String getFollowing() {
+	public int getFollowing() {
 		return following;
 	}
 
-	public void setFollowing(String following) {
+	public void setFollowing(int following) {
 		this.following = following;
 	}
 
-	public String getFollower() {
+	public int getFollower() {
 		return follower;
 	}
 
-	public void setFollower(String follower) {
+	public void setFollower(int follower) {
 		this.follower = follower;
 	}
 
 	@Override
 	public String toString() {
-		return "FollowVO [num=" + num + ", id=" + id + ", following=" + following + ", follower=" + follower + "]";
+		return "FollowVO [num=" + num + ", myid=" + myid + ", id=" + id + ", following=" + following + ", follower="
+				+ follower + "]";
 	}
+	
 }
