@@ -4,6 +4,7 @@ import java.util.List;
 
 import VO.LiveVO;
 
+//board.service.Service.java
 public interface liveService {
 	void addLive(LiveVO l);
 	LiveVO getLive(String id);

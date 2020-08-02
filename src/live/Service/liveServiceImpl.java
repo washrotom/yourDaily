@@ -6,6 +6,7 @@ import VO.LiveVO;
 import live.DAO.liveDao;
 import live.DAO.liveDaoImpl;
 
+//board.service.ServiceImpl.java
 public class liveServiceImpl implements liveService{
 	
 	private liveDao dao;

@@ -1,5 +1,7 @@
 package sign.Service;
 
+//member.service.joinService
+
 import VO.SignVO;
 
 public interface signService {

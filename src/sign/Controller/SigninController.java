@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
 import VO.SignVO;
 import live.Service.liveService;
 import live.Service.liveServiceImpl;
+import maintenance.service.IpService;
+import maintenance.service.IpServiceImpl;
 import sign.Service.signService;
 import sign.Service.signServiceImpl;
-
+//member.controller.LoginContoller.java
 /**
  * Servlet implementation class SigninController
  */
@@ -44,12 +46,27 @@ public class SigninController extends HttpServlet {
 		boolean flag = false;
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		
 		SignVO vo = service.getSignVO(id);
 		
 		
 		if(vo!=null&&pwd.equals(vo.getPwd())) {
+			int type = vo.getType();//입력받은 값이 아니라, 데이타베이스에서 가져오는 것이니까
+			
 			session.setAttribute("id", id);
+			session.setAttribute("type", type);
 			flag = true;
+			
+			
+			if(2 == type) { // 2면 블라인드계정
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/mente/BAN.jsp");
+				if (dispatcher != null) dispatcher.forward(request, response);
+				}
+			
+			if(3 == type) { // 3면 슈퍼계정
+				RequestDispatcher dispatche = request.getRequestDispatcher("/mente/super.jsp");
+				if (dispatche != null) dispatche.forward(request, response);
+			}
 		}
 		session.setAttribute("flag", flag);
 		
@@ -58,6 +75,17 @@ public class SigninController extends HttpServlet {
 			path = "/view/order/list.jsp";
 		} else path = "/view/seller/list.jsp";
 */		
+		
+		
+		/*IP AND ID TRAKER*/
+		//HttpSession session = request.getSession(false); // 세션이 없을 경우에만.
+		String path = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
+		IpService ipp = new IpServiceImpl();
+		String TrakerId = (String) session.getAttribute("id");
+		ipp.IpTracker(request, path, TrakerId);
+		/*IP AND ID TRAKER END*/
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/in/loginComplete.jsp");
 		if(dispatcher != null) {
 			dispatcher.forward(request, response);

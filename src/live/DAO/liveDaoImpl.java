@@ -10,6 +10,7 @@ import java.util.List;
 import DB.DBConnect;
 import VO.LiveVO;
 
+//board.dao.DaoImpl.java
 public class liveDaoImpl implements liveDao{
 	
 	private DBConnect db;

@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import VO.LiveVO;
 import live.Service.liveService;
 import live.Service.liveServiceImpl;
+import maintenance.service.IpService;
+import maintenance.service.IpServiceImpl;
 
+
+//board.controller.ListConroller.java
 /**
  * Servlet implementation class ListController
  */
@@ -45,6 +49,15 @@ public class ListController extends HttpServlet {
 		ArrayList<LiveVO> list = (ArrayList<LiveVO>) service.getAll(id);
 
 		request.setAttribute("list", list);
+		
+		/*IP AND ID TRAKER*/
+		//HttpSession session = request.getSession(false);
+		String path = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
+		IpService ipp = new IpServiceImpl();
+		String TrakerId = "SINGUP";
+		ipp.IpTracker(request, path, TrakerId);
+		/*IP AND ID TRAKER END*/
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/confirm/list.jsp");
 		if (dispatcher != null) {

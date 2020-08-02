@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import DB.DBConnect;
 import VO.SignVO;
 
+//member.dao.JoinDaoImpl.java
 public class signDaoImpl implements signDao{
 	private DBConnect db;
 	

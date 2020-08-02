@@ -39,7 +39,7 @@ public class ForgetPasswordController extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		SignVO vo = new SignVO(id, pwd, null, 0);
+		SignVO vo = new SignVO(id, pwd, null, 1);
 		
 		service.rePwd(vo);
 		

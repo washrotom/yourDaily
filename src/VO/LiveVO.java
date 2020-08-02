@@ -2,6 +2,8 @@ package VO;
 
 import java.sql.Date;
 
+//model.Board.java
+
 public class LiveVO {
 	private int num;
 	private String id;

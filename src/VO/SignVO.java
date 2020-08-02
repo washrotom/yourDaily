@@ -1,5 +1,6 @@
 package VO;
 
+//model.Member.java
 public class SignVO {
 	private String id;
 	private String pwd;

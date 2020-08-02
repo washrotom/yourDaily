@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import VO.LiveVO;
+import maintenance.service.IpService;
+import maintenance.service.IpServiceImpl;
 
+//board.controlloer.WriteController.java
 /**
  * Servlet implementation class LiveController
  */
@@ -50,6 +53,15 @@ public class LiveController extends HttpServlet {
 			flag = true;
 		}
 		session.setAttribute("flag", flag);
+		
+		/*IP AND ID TRAKER*/
+		//HttpSession session = request.getSession(false);
+		String path = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
+		IpService ipp = new IpServiceImpl();
+		String TrakerId = "SINGUP";
+		ipp.IpTracker(request, path, TrakerId);
+		/*IP AND ID TRAKER END*/
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/live/result.jsp");
 		if(dispatcher != null) {

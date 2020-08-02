@@ -25,7 +25,7 @@ public class DBConnect {
 		try {
 			Class.forName(jdbc_driver);
 
-			conn = DriverManager.getConnection(jdbc_url, "hr", "hr");
+			conn = DriverManager.getConnection(jdbc_url, "system", "hr");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
