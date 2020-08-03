@@ -14,7 +14,7 @@
 <c:if test="${not empty sessionScope.id }">
 		<ul>			
 			<div class="follow">
-				<jsp:include page="/follow/followingResult.jsp"/>		
+				<jsp:include page="/follow/followResult.jsp"/>		
 			</div>
 			<br>
 			<li><a href="#red">1 Jan</a></li>
@@ -35,7 +35,7 @@
 <c:if test="${empty sessionScope.id }">
 		<ul>
 		<div class="follow">
-			<jsp:include page="/follow/followingResult.jsp"/>		
+			<jsp:include page="/follow/followResult.jsp"/>		
 		</div>	
 			<br>
 			<li><a href="#red">1 Jan</a></li>

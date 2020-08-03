@@ -27,8 +27,8 @@ public class followServiceImpl implements followService{
 	}
 
 	@Override
-	public List listFollowing(String myid) {
-		return dao.selectFollowing(myid);
+	public List listFollowing(String id) {
+		return dao.selectFollowing(id);
 	}
 	@Override
 	public List listFollower(String id) {

@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${not empty sessionScope.id != null}">
+<c:if test="${not empty sessionScope.liveid != null}">
 	${sessionScope.id }님의 일기가 등록되었습니다.<br>
 </c:if>
-	<c:if test="${empty sessionScope.id == null }">
+	<c:if test="${empty sessionScope.liveid == null }">
 		일기가 작성되지 않았습니다. <br>
 	</c:if>
 

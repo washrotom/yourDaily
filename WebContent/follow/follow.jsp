@@ -10,15 +10,18 @@
 function ing() {
 	var session = document.f.myid;
 	var confirmFollow = confirm("${list[0].id}´ÔÀ» ÆÈ·Î¿ì ÇÏ½Ã°Ú½À´Ï±î?");
+	
 	if(session.value=="") {
 		alert("·Î±×ÀÎ ¸ÕÀú ÇÏ¼¼¿ä.");
 		session.value = "";
 	 	return false;
 	} else {		
-		if(confirmFollow) {	
+		if(confirmFollow) {
 			f.submit();
 		} else return false;
 	}
+	
+	return f.reset();
 }
 
 function p() {
@@ -33,13 +36,14 @@ function p() {
 <div>
 <form name="f" action="${pageContext.request.contextPath }/FollowController">
 	<div style="font-weight: bold; font-size: 35px; margin: 10px 10px;">
-		${list[0].id} 	<input type="button" name="following" onclick="ing()" value="follow">
+		
+		${list[0].id} 					
+						<input type="button" name="following" onclick="ing()" value="follow">					
 						<input type="button" onclick="p()" value="edit profile">
 						<input type="hidden" name="id" value="${list[0].id }">
 						<input type="hidden" name="myid" value="${sessionScope.id }">
 	</div>
 </form>
-<form action="">
 	<div style="font-weight:normal; font-size: 16px; margin: 5px 10px; text-overflow: clip; font-variant: small-caps; word-spacing: 25px;">
 		<span>
 			<c:if test="${not empty size }">
@@ -48,10 +52,11 @@ function p() {
 				</a>°Ô½Ã¹°
 			</c:if>
 		</span>
-		<span><a href="${pageContext.request.contextPath }/FollowListController">n</a></span>ÆÈ·Î¿ö  
-		<span><a href="">n</a></span>ÆÈ·ÎÀ×
+		<span><a href="${pageContext.request.contextPath }/FollowListController">
+			${listsize}
+			</a>ÆÈ·Î¿ö</span>  
+		<span><a href="">n</a>ÆÈ·ÎÀ×</span>
 	</div><hr>
-</form>
 </div>
 </body>
 </html>

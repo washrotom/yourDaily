@@ -14,6 +14,7 @@
 				<h1>글확인</h3>
 			<form action="${pageContext.request.contextPath }/ListController">
 				<input type="text" name="id" placeholder="이름" value="${sessionScope.id }">
+				<input type="hidden" name="myid" value="${sessionScope.id }">
 				<input type="submit" value="찾기">
 			</form>
 			<hr><a href="${pageContext.request.contextPath }/in/in.jsp">home.</a>

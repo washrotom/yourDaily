@@ -46,7 +46,7 @@ public class LiveController extends HttpServlet {
 		service.addLive(l);
 		
 		if(l != null) {
-			session.setAttribute("id", id);
+			session.setAttribute("liveid", id);
 			flag = true;
 		}
 		session.setAttribute("flag", flag);

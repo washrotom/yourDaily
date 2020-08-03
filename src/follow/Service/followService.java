@@ -7,7 +7,7 @@ import VO.FollowVO;
 public interface followService {
 	void addFollow(FollowVO vo);
 	void acceptFollow(String id);
-	List listFollowing(String myid);
+	List listFollowing(String id);
 	List listFollower(String id);
 	void unFollow(String id);
 }
