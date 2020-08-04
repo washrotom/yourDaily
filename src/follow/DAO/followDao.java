@@ -10,4 +10,6 @@ public interface followDao {
 	List selectFollowing(String id);
 	List selectFollower(String id);
 	public void delete(String id);
+	FollowVO listSelect(String id, String myid);
+	List myFollowingList(String id);
 }

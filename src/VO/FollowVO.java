@@ -1,7 +1,7 @@
 package VO;
 
 public class FollowVO {
-	private int num;
+	private String num;
 	private String id;
 	private int following = 0;
 	private int follower = 0;
@@ -11,7 +11,7 @@ public class FollowVO {
 		
 	}
 
-	public FollowVO(int num, String id, int following, int follower, String myid) {
+	public FollowVO(String num, String id, int following, int follower, String myid) {
 		super();
 		this.num = num;
 		this.myid = myid;
@@ -20,11 +20,11 @@ public class FollowVO {
 		this.follower = follower;
 	}
 
-	public int getNum() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 

@@ -52,19 +52,41 @@ public class FollowController extends HttpServlet {
 		String id = request.getParameter("id");
 		ArrayList<LiveVO> list = (ArrayList<LiveVO>) lservice.getAll(id);
 		
-		
 		String myid = request.getParameter("myid");
-		FollowVO vo = new FollowVO(0,id,1,0,myid);
-		service.addFollow(vo);
-		String liveid = (String) session.getAttribute("liveid");
-		String signid = (String) session.getAttribute("id");
+		FollowVO vo = service.followListSelect(id, myid);
 		
+		String path = "";
+		if(vo==null) {
+			vo = new FollowVO(id+myid,id,1,0,myid);
+			service.addFollow(vo);	
+			path = "/confirm/followingResultList.jsp"; 
+		} else {
+			System.out.println("중복");
+			path = "/confirm/followingResultList.jsp";
+		}
+		
+		
+		
+		/*	
+		ArrayList<String> folist = new ArrayList<String>();
+		String folistString = vo.getId() + vo.getMyid();
+		folist.add(folistString);
+		System.out.println(folist);
+		
+		
+			HashSet<String> folistSet = new HashSet<String>(folist);
+			System.out.println(folistSet);
+			ArrayList<String> folist2 = new ArrayList<String>(folistSet);
+			System.out.println(folist2);
+			if(folist2 != null) {
+				service.addFollow(vo);				
+			}			
+		*/
+		//HashSet<FollowVO> setlist = (HashSet<FollowVO>) service.listFollowing(id);
+		
+		// ----------------------- 팔로워 리스트 ------------------------------------------------------
 		ArrayList<FollowVO> followinglist = (ArrayList<FollowVO>) service.listFollowing(id);
-		String set = vo.getId() + vo.getMyid();
-		HashSet<FollowVO> setlist = new HashSet<FollowVO>(set);
-		System.out.println(set);
-		
-		
+				
 		if(followinglist != null) {
 			request.setAttribute("followinglist", followinglist);
 			request.setAttribute("listsize", followinglist.size());
@@ -72,14 +94,41 @@ public class FollowController extends HttpServlet {
 			request.setAttribute("followinglist", "팔로우리스트가 없습니다.");
 			request.setAttribute("listsize", "0");
 		}
+		// -----------------------------------------------------------------------------------------
 		
+		//------------------------ 팔로잉 리스트 보여주는 곳 ------------------------------------------------------
+		ArrayList<FollowVO> followerlist = (ArrayList<FollowVO>) service.listFollower(id);
+		
+		if(followerlist != null) {
+			request.setAttribute("followerlist", followerlist);
+			request.setAttribute("followerlistsize", followerlist.size());
+		} else {
+			request.setAttribute("followerlist", "팔로잉리스트가 없습니다.");
+			request.setAttribute("followerlistsize", "0");
+		}
+		// ------------------------------------------------------------------------------------------------
+
+		// ----------------------- 내가 팔로우 혹은 검색한 사람이 팔로우한 리스트 ------------------------------------------------------
+				ArrayList<FollowVO> myfollowinglist = (ArrayList<FollowVO>) service.mylistFollowing(id);
+						
+				if(followinglist != null) {
+					request.setAttribute("myfollowinglist", myfollowinglist);
+					request.setAttribute("mylistsize", myfollowinglist.size());
+				} else {
+					request.setAttribute("myfollowinglist", "팔로우리스트가 없습니다.");
+					request.setAttribute("mylistsize", "0");
+				}
+		// -----------------------------------------------------------------------------------------
+				
 		request.setAttribute("list", list);
 		request.setAttribute("size", list.size());
-		
+	
+		/*
+		ArrayList<String> folist = new ArrayList<String>();
+		String folistString = vo.getId() + vo.getMyid();
+		folist.add(folistString);
 		System.out.println(vo.getId() + vo.getMyid());
-		
-		
-		String path = "/confirm/followingResultList.jsp";
+		*/
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		if(dispatcher != null) {

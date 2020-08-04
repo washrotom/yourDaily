@@ -1,0 +1,134 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	background: gray;
+}
+.action {
+	cursor: pointer;	
+}
+.action span {
+	color: black;
+	display: flex;
+	font-size: 16px;
+	transition: 0.3s ease-in-out;
+}
+
+.action ul {
+	box-shadow: 1px 5px 5px rgba(255, 255, 255, 0.5);
+	border-radius: 15px;
+	position: absolute;
+	top: 200px;
+	min-width: 250px;
+	background: #fff;
+	padding: 10px;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s;
+}
+
+.action.active ul {
+	top: 200px;
+	left: 180px;
+	opacity: 1;
+	visibility: visible;
+	transition: 0.3s;
+}
+
+.action.active ul li {
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 5px 0;
+	transition: 0.3s;
+}
+
+.action ul li:hover {
+	font-weight: 600;
+}
+
+.action ul li:not(:last-child) {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.action ul li img {
+	margin-right: 10px;
+	opacity: 0.2;
+	transform: scale(0.7);
+}
+.action ul li:hover img {
+	opacity: 0.8;
+}
+
+
+
+
+
+
+.weraction {
+	cursor: pointer;	
+}
+.weraction span {
+	color: black;
+	display: flex;
+	font-size: 16px;
+	transition: 0.3s ease-in-out;
+}
+
+.weraction ul {
+	box-shadow: 1px 5px 5px rgba(255, 255, 255, 0.5);
+	border-radius: 15px;
+	position: absolute;
+	top: 200px;
+	min-width: 250px;
+	background: #fff;
+	padding: 10px;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s;
+}
+
+.weraction.weractive ul {
+	top: 200px;
+	left: 180px;
+	opacity: 1;
+	visibility: visible;
+	transition: 0.3s;
+}
+
+.weraction.weractive ul li {
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 5px 0;
+	transition: 0.3s;
+}
+
+.weraction ul li:hover {
+	font-weight: 600;
+}
+
+.weraction ul li:not(:last-child) {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.weraction ul li img {
+	margin-right: 10px;
+	opacity: 0.2;
+	transform: scale(0.7);
+}
+.weraction ul li:hover img {
+	opacity: 0.8;
+}
+
+
+

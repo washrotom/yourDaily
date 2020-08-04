@@ -40,6 +40,16 @@ public class followServiceImpl implements followService{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public FollowVO followListSelect(String id, String myid) {
+	
+		return dao.listSelect(id, myid);
+	}
+	@Override
+	public List mylistFollowing(String id) {
+		
+		return dao.myFollowingList(id);
+	}
 	
 
 }

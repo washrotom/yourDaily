@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image: url("../img/sblack.jpg");
+	background-image: #ffffff;
 	background-size: cover;
 }
 	
@@ -24,7 +24,7 @@ body {
 }
 .text:before {
 	content: 'yourdiary.';
-	color: #007255;
+	color: #fab1a0;
 	position: absolute;
 	width: 0;
 	overflow: hidden;
@@ -67,11 +67,12 @@ body {
 }	
 .btnLG {	
 	padding: 2px 10px;
-	color:#dfe4ea;
+	color:#c8d6e5;
 	position: absolute;
 	top: 66%;
 	left: 53.8%;
 	font: sans-serif;
 	font-size: 23px;
 	text-decoration: none;;
+	font-weight: bold;
 }
