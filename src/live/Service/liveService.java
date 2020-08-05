@@ -9,6 +9,7 @@ public interface liveService {
 	LiveVO getLive(String id);
 	List getAll(String id);
 	void editLive(LiveVO l);
-	void delLive(String id, String title);
+	void delLive(int num);
+	LiveVO getLiveNumber(int num);
 
 }

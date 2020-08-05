@@ -37,8 +37,14 @@ public class liveServiceImpl implements liveService{
 	}
 
 	@Override
-	public void delLive(String id, String title) {
-		dao.delete(id, title);
+	public void delLive(int num) {
+		dao.delete(num);
+	}
+
+	@Override
+	public LiveVO getLiveNumber(int num) {
+		// TODO Auto-generated method stub
+		return dao.selectNum(num);
 	}
 
 }

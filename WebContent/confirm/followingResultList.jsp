@@ -68,7 +68,7 @@
 							<div>
 								<h2>${b.title }</h2>
 									<p>${b.content }</p> 
-							<a href="${pageContext.request.contextPath }/in/in.jsp"/>
+							<a href="${pageContext.request.contextPath }/ReadController?num=${b.num}"></a>
 							</div>
 						</div>
 					</div>

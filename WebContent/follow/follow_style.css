@@ -22,7 +22,8 @@ body {
 }
 
 .action ul {
-	box-shadow: 1px 5px 5px rgba(255, 255, 255, 0.5);
+
+	box-shadow: 0 0 20px rgba(0,0,0,.2);
 	border-radius: 15px;
 	position: absolute;
 	top: 200px;
@@ -68,6 +69,24 @@ body {
 	opacity: 0.8;
 }
 
+.action.active ul li .follow_a{
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	
+	align-items: center;
+	padding: 5px 0;
+	transition: 0.3s;
+}
+
+.action ul li .follow_a:hover {
+	font-weight: 600;
+}
+
+.action ul li .follow_a:not(:last-child) {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
 
 
 
@@ -84,7 +103,8 @@ body {
 }
 
 .weraction ul {
-	box-shadow: 1px 5px 5px rgba(255, 255, 255, 0.5);
+	
+	box-shadow: 0 0 20px rgba(0,0,0,.2);
 	border-radius: 15px;
 	position: absolute;
 	top: 200px;

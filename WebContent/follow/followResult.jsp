@@ -56,7 +56,9 @@ function p() {
 			<span>ÆÈ·Î¿ö ${listsize}</span>
 				<ul><li style="text-align: center; justify-content: center;">Followers</li>
 					<c:forEach var="ing" items="${followinglist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${ing.myid}</li>
+						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${ing.myid}">${ing.myid}</a>
+						</li>
 					</c:forEach>
 				</ul>
 			</span>
@@ -98,7 +100,6 @@ function p() {
 		}
 		return flag;
 	}
-	
 	</script>
 </body>
 </html>

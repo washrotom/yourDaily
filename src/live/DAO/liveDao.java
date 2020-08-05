@@ -9,6 +9,7 @@ public interface liveDao {
 	public LiveVO select(String id);
 	List selectAll(String id);
 	public void update(LiveVO l);
-	public void delete(String id, String title);
+	public void delete(int num);
+	LiveVO selectNum(int num);
 
 }

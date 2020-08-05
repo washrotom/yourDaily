@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/confirm/style.css" type="text/css">
 </head>
 <body>
+<div>
 <c:if test="${not empty sessionScope.id }">
 		<ul>			
 			<div class="follow">
@@ -53,6 +54,7 @@
 			<li><a href="${pageContext.request.contextPath }/live/live.jsp">write</a></li>
 		</ul>
 </c:if>
+</div>
 
 	<c:if test="${not empty list }" >
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/example/menu_style.css" type="text/css">
@@ -68,7 +70,7 @@
 							<div>
 								<h2>${b.title }</h2>
 									<p>${b.content }</p> 
-							<a href="${pageContext.request.contextPath }/in/in.jsp"/>
+									<a href="${pageContext.request.contextPath }/ReadController?num=${b.num}"></a>
 							</div>
 						</div>
 					</div>
@@ -95,7 +97,6 @@
 				</div>
 		</section>
 							</c:if>
-				<a href="${pageContext.request.contextPath}/
-				ReadController?name=${b.name}">${b.title }</a>
+				
 </body>
 </html>

@@ -17,6 +17,7 @@
 		<a class="btnC" href="${pageContext.request.contextPath }/confirm/confirm.jsp">Search</a>
 		<a class="btnJ" href="${pageContext.request.contextPath }/sign_up/sign_up.jsp">SignUp</a><br>
 		<a class="btnLG" href="${pageContext.request.contextPath }/SignOutController">SignOut</a>
+		<a class="btnMI" href="${pageContext.request.contextPath }/ListController?id=${sessionScope.id}">내정보보기</a>
 	</div>
 </div>
 </c:if>	

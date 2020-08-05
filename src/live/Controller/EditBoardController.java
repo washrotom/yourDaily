@@ -1,7 +1,6 @@
 package live.Controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,66 +10,59 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import VO.CommentVO;
 import VO.LiveVO;
-import comments.Service.CommentService;
-import comments.Service.CommentServiceImpl;
 import live.Service.liveService;
 import live.Service.liveServiceImpl;
 
 
 /**
-* Servlet implementation class SearchController
-*/
-@WebServlet(name = "ReadController", urlPatterns = { "/ReadController" })
-public class ReadController extends HttpServlet {
+ * Servlet implementation class EditBoardController
+ */
+@WebServlet("/EditBoardController")
+public class EditBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ReadController() {
+	public EditBoardController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 * response)
+	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		//   청             湄      
+		// �슂泥�怨� �쓳�떟�쓽 �씤肄붾뵫 �꽕�젙
 		request.setCharacterEncoding("euc-kr");
 		response.setContentType("text/html; charset=EUC-KR");
 		response.setCharacterEncoding("euc-kr");
 
-		//                     체     
-		
+		// 湲곕뒫�쓣 �젣怨듯븷 �꽌鍮꾩뒪 媛앹껜 �깮�꽦
 		liveService service = new liveServiceImpl();
-		CommentService service2 = new CommentServiceImpl();
 
-		//   청  캘         閨 
+		// �슂泥� �뙆�씪硫뷀꽣 媛� �씫湲�
 		int num = Integer.parseInt(request.getParameter("num"));
+		String writer = request.getParameter("writer");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String path = request.getParameter("path");
 
-		//     毬   講          
-		LiveVO livenum = service.getLiveNumber(num);
-		CommentVO c = new CommentVO();
+		// �슂泥� �뙆�씪硫뷀꽣濡� �씫�� 媛믪쑝濡� Board 媛앹껜 �깮�꽦
+		LiveVO l = new LiveVO(num, writer, null, title, content, path);
 
-          c.setComment_Bnum(num); //�뿬湲곕쭔 �닔�젙
-       
-		ArrayList<CommentVO> commentlist = (ArrayList<CommentVO>) service2.CommentAll(c);
-
-		// list   request       
-		request.setAttribute("commentlist", commentlist);
-
-		// b   request       
-		request.setAttribute("livenum", livenum);
+		// �꽌鍮꾩뒪�쓽 湲��닔�젙 湲곕뒫 �떎�뻾
+		service.editLive(l);
 		
-		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("/comments/search.jsp");
+adasdawfawf
+
+		// 湲�紐⑸줉�쑝濡� �씠�룞
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
 		}
@@ -78,7 +70,7 @@ public class ReadController extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 * response)
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

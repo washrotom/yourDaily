@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/comments/Controller/CommentDelController.java=UTF-8
+encoding//src/comments/Controller/CommentInsertController.java=UTF-8
+encoding//src/comments/DAO/CommentImpl.java=UTF-8
+encoding//src/live/Controller/DelBoardController.java=UTF-8
+encoding//src/live/Controller/EditBoardController.java=UTF-8
+encoding//src/live/Controller/ReadController.java=UTF-8

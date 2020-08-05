@@ -60,7 +60,9 @@ function p() {
 			<span>팔로워 ${listsize}</span>
 				<ul><li style="text-align: center; justify-content: center;">Followers</li>
 					<c:forEach var="ing" items="${followinglist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${ing.myid}</li>
+						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${ing.myid}">${ing.myid}</a>
+						</li>
 					</c:forEach>
 				</ul>
 			</span>
@@ -69,17 +71,21 @@ function p() {
 			<span>팔로잉 ${followerlistsize + mylistsize}</span>
 				<ul><li style="text-align: center; justify-content: center;">Follows</li>
 					<c:forEach var="wer" items="${followerlist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${wer.myid}</li>						
+						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${wer.myid}">${wer.myid}</a>
+						</li>						
 					</c:forEach>
 					<c:forEach var="my" items="${myfollowinglist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${my.id}</li>						
+						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${my.id}">${my.id}</a>
+						</li>						
 					</c:forEach>
 				</ul>
 			</span>
 	</div><hr>
 </div>
 	
-	
+	<!-- 팔로워 리스트 클릭했을때 리스트 보여주는 스크립트 -->
 	<script type="text/javascript">
 	var flag = false;
 	var werflag = false;
