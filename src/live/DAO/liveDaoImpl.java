@@ -22,7 +22,7 @@ public class liveDaoImpl implements liveDao{
 	public void insert(LiveVO l) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into live values(live_num.nextval,?,sysdate,?,?,null)";
+		String sql = "insert into live values(live_num.nextval,?,sysdate,?,?,?,0)";
 		
 		try {
 			conn = db.getConnection();
@@ -30,6 +30,11 @@ public class liveDaoImpl implements liveDao{
 			pstmt.setString(1, l.getId());
 			pstmt.setString(2, l.getTitle());
 			pstmt.setString(3, l.getContent());
+			pstmt.setString(4, l.getPath());
+			
+			String path = l.getPath();
+			//System.out.println("where are path go? " + path);
+
 			
 			pstmt.executeUpdate();
 			
@@ -59,7 +64,7 @@ public class liveDaoImpl implements liveDao{
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				return new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6));
+				return new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6),rs.getInt(7));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -92,7 +97,7 @@ public class liveDaoImpl implements liveDao{
 
 			
 			while (rs.next()) {
-				list.add(new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+				list.add(new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -213,8 +218,7 @@ public class liveDaoImpl implements liveDao{
 
 			// 검색 결과가 있다면 컬럼 값 하나씩 읽어서 Board 객체를 생성하여 반환
 			if (rs.next()) {
-					return new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3), 
-		rs.getString(4), rs.getString(5), rs.getString(6));
+					return new LiveVO(rs.getInt(1), rs.getString(2), rs.getDate(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
 			}
 
 		} catch (SQLException e) {

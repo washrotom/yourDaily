@@ -54,12 +54,11 @@ public class EditBoardController extends HttpServlet {
 		String path = request.getParameter("path");
 
 		// �슂泥� �뙆�씪硫뷀꽣濡� �씫�� 媛믪쑝濡� Board 媛앹껜 �깮�꽦
-		LiveVO l = new LiveVO(num, writer, null, title, content, path);
+		LiveVO l = new LiveVO(num, writer, null, title, content, path, 1);
 
 		// �꽌鍮꾩뒪�쓽 湲��닔�젙 湲곕뒫 �떎�뻾
 		service.editLive(l);
 		
-adasdawfawf
 
 		// 湲�紐⑸줉�쑝濡� �씠�룞
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");

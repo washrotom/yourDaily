@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import VO.LiveVO;
+import maintenance.service.IpService;
+import maintenance.service.IpServiceImpl;
 
 /**
  * Servlet implementation class SelectController
@@ -41,6 +43,14 @@ public class SelectController extends HttpServlet {
 		String name =  (String)session.getAttribute("name");
 		
 		LiveVO l = service.getLive(name);
+		
+		/*IP AND ID TRAKER*/
+		String path = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
+		IpService ipp = new IpServiceImpl();
+		String TrakerId = (String) session.getAttribute("id");
+		ipp.IpTracker(request, path, TrakerId);
+		/*IP AND ID TRAKER END*/
 		
 		request.setAttribute("l", l);
 		

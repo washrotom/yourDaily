@@ -21,7 +21,7 @@ function live() {
 </script>
 </head>
 <body>
-<form name="f" action="${pageContext.request.contextPath }/LiveController" method="post">
+<form name="f" action="${pageContext.request.contextPath }/LiveController" method="post" enctype = "multipart/form-data">
 	<div class="live-form">
 		<h1 style="font: bold;">My diary..</h1>
 		<div class="txtb">
@@ -40,7 +40,7 @@ function live() {
 		<input type="reset" value="Clear" class="btn">
 		<input type="button" value="공유하기" onclick="">
 		<input type="button"  onclick="a()" value="홈으로">
-		<input type="file" value="이미지업로드">
+		<input type="file" name="file" value="이미지업로드">
 	</div>
 </form>
 	

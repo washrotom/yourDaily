@@ -2,6 +2,8 @@ package VO;
 
 import java.sql.Date;
 
+//model.Board.java
+
 public class LiveVO {
 	private int num;
 	private String id;
@@ -9,12 +11,13 @@ public class LiveVO {
 	private String title;
 	private String content;
 	private String path;
+	private int type;
 	
 	public LiveVO() {
 		
 	}
 
-	public LiveVO(int num, String id, Date w_date, String title, String content, String path) {
+	public LiveVO(int num, String id, Date w_date, String title, String content, String path, int type) {
 		super();
 		this.num = num;
 		this.id = id;
@@ -22,6 +25,7 @@ public class LiveVO {
 		this.title = title;
 		this.content = content;
 		this.path = path;
+		this.type = type;
 	}
 
 	public int getNum() {
@@ -71,11 +75,20 @@ public class LiveVO {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
+	public int getType() {
+		return type;
+	}
+
+	public void setPath(int type) {
+		this.type = type;
+	}
+	
 
 	@Override
 	public String toString() {
 		return "LiveVO [num=" + num + ", id=" + id + ", w_date=" + w_date + ", title=" + title + ", content=" + content
-				+ ", path=" + path + "]";
+				+ ", path=" + path + ", type=" + type + "]";
 	}
 	
 

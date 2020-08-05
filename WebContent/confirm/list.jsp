@@ -63,7 +63,10 @@
 				<div class="card">
 					<div class="box">
 						<div class="imgBx">
-							<img src="${pageContext.request.contextPath }/img/sky.jpg"><br>
+							<c:choose>
+							<c:when test="${not empty b.path}"><img src="${pageContext.request.contextPath }/img/${b.path}"><br></c:when>
+							<c:otherwise><img src="${pageContext.request.contextPath }/img/sky.jpg"><br></c:otherwise>
+							</c:choose>
 							<h1>${b.title }</h1>
 						</div>
 						<div class="contentBx">

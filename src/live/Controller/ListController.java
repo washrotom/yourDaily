@@ -20,6 +20,8 @@ import follow.Service.followService;
 import follow.Service.followServiceImpl;
 import live.Service.liveService;
 import live.Service.liveServiceImpl;
+import maintenance.service.IpService;
+import maintenance.service.IpServiceImpl;
 import sign.Service.signService;
 import sign.Service.signServiceImpl;
 
@@ -58,6 +60,15 @@ public class ListController extends HttpServlet {
 		
 		String myid = request.getParameter("myid");
 		String signid = (String) session.getAttribute("id");
+		
+		/*IP AND ID TRAKER*/
+		HttpSession sesion = request.getSession(false);
+		String path1 = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(path1);
+		IpService ipp = new IpServiceImpl();
+		String TrakerId = (String) session.getAttribute("id");
+		ipp.IpTracker(request, path1, TrakerId);
+		/*IP AND ID TRAKER END*/
 		
 		// FollowVo에서 팔로우 된 기록을 색출하는 곳 --------------------------------------
 		FollowVO vo = servicefollow.followListSelect(id, signid);
