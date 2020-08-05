@@ -10,6 +10,18 @@
 <body>
 <div>
 	<h1 class="text">yourdiary.</h1>
+	<div class="clouds">
+		<img src="../img/cloud/cloud1.png" style="--i:1;">
+		<img src="../img/cloud/cloud2.png" style="--i:2;">
+		<img src="../img/cloud/cloud3.png" style="--i:3;">
+		<img src="../img/cloud/cloud4.png" style="--i:4;">
+		<img src="../img/cloud/cloud5.png" style="--i:5;">
+		<img src="../img/cloud/cloud1.png" style="--i:10;">
+		<img src="../img/cloud/cloud2.png" style="--i:9;">
+		<img src="../img/cloud/cloud3.png" style="--i:8;">
+		<img src="../img/cloud/cloud4.png" style="--i:7;">
+		<img src="../img/cloud/cloud5.png" style="--i:6;">
+	</div>
 	<div class="btn">
 		<a class="btnL" href="${pageContext.request.contextPath }/mood/mood.jsp">Write</a><br>
 		<a class="btnC" href="${pageContext.request.contextPath }/confirm/confirm.jsp">Search</a>

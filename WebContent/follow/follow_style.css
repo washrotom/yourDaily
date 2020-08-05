@@ -69,7 +69,7 @@ body {
 	opacity: 0.8;
 }
 
-.action.active ul li .follow_a{
+.action.active ul li p{
 	list-style: none;
 	display: flex;
 	justify-content: flex-start;
@@ -79,11 +79,11 @@ body {
 	transition: 0.3s;
 }
 
-.action ul li .follow_a:hover {
+.action ul li p:hover {
 	font-weight: 600;
 }
 
-.action ul li .follow_a:not(:last-child) {
+.action ul li p:not(:last-child) {
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 

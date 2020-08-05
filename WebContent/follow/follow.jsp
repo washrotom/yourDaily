@@ -31,6 +31,7 @@ function p() {
 		location.href="${pageContext.request.contextPath }/in/in.jsp";		
 	} else return false;
 }
+
 </script>
 </head>
 <body>
@@ -61,7 +62,10 @@ function p() {
 				<ul><li style="text-align: center; justify-content: center;">Followers</li>
 					<c:forEach var="ing" items="${followinglist }">
 						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
-						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${ing.myid}">${ing.myid}</a>
+						<a style="font-size: 14px;" href="${pageContext.request.contextPath}/ListController?id=${ing.myid}">${ing.myid}</a>
+						<c:if test="${myfollowinglist[0].id != ing.myid}">
+							<a style="font-size: 10px;" href="${pageContext.request.contextPath }/FollowAcceptController?myid=${ing.myid},id=${sessionScope.id}">accept</a>							
+						</c:if>
 						</li>
 					</c:forEach>
 				</ul>

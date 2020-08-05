@@ -21,8 +21,8 @@ public class followServiceImpl implements followService{
 	}
 
 	@Override
-	public void acceptFollow(String id) {
-		// TODO Auto-generated method stub
+	public void acceptFollow(String id, String myid) {
+		dao.accept(id, myid);
 		
 	}
 

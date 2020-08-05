@@ -54,7 +54,7 @@ public class followDaoImpl implements followDao{
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, myid));
+			pstmt.setString(2, myid);
 			pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();

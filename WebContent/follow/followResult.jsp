@@ -58,6 +58,9 @@ function p() {
 					<c:forEach var="ing" items="${followinglist }">
 						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">
 						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${ing.myid}">${ing.myid}</a>
+						<c:if test="${myfollowinglist[0].id != ing.myid}&&${sessionScope.id == ing.myid}">
+							<a href="${pageContext.request.contextPath }/FollowAcceptController">accept</a>							
+						</c:if>
 						</li>
 					</c:forEach>
 				</ul>
@@ -67,10 +70,14 @@ function p() {
 			<span>ÆÈ·ÎÀ× ${followerlistsize + mylistsize}</span>
 				<ul><li style="text-align: center; justify-content: center;">Follows</li>
 					<c:forEach var="wer" items="${followerlist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${wer.myid}</li>
+						<li>
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${wer.myid}">${wer.myid}</a>
+						</li>
 					</c:forEach>
 					<c:forEach var="my" items="${myfollowinglist }">
-						<li><img src="${pageContext.request.contextPath }/img/apple4.jpg">${my.id}</li>						
+						<li>
+						<a class="follow_a" href="${pageContext.request.contextPath}/ListController?id=${my.id}">${my.id}</a>
+						</li>						
 					</c:forEach>				
 				</ul>
 			</span>

@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image: #ffffff;
+	background: url("../img/sky.jpg");
 	background-size: cover;
 }
 	
@@ -16,7 +16,7 @@ body {
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 70px;
+	font-size: 80px;
 	font-weight: 700;
 	letter-spacing: 0.2em;
 	text-transform: lowercase;
@@ -75,4 +75,43 @@ body {
 	font-size: 23px;
 	text-decoration: none;;
 	font-weight: bold;
+}
+
+.clouds 
+{
+	background: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.clouds img 
+{
+	position: absolute;
+	bottom: 0;
+	max-width: 100%;
+	animation: animate calc(2s * var(--i)) linear infinite;
+}
+
+@keyframes animate 
+{
+	0% 
+	{
+		opacity: 0;
+		transform: scale(1);
+		
+	}
+	25%, 75%
+	{
+		opacity: 1;
+	}
+	100%
+	{
+		opacity: 0;
+		transform: scale(3);
+	}
 }
