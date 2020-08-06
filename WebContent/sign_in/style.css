@@ -1,0 +1,119 @@
+@charset "EUC-KR";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+section {
+	width: 100%;
+	height: 100vh;
+	background: #dfe6e9;
+	background-size: cover;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 340px;
+	text-align: center;
+}
+
+.login-form {
+	position: relative;
+	box-sizing: border-box;
+	padding: 60px 30px;
+	transition: .5s;
+}
+.login-form:hover {
+	background: rgba(255,255,255,.1);
+	box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
+.login-form h1 {
+	margin: 0 0 20px;
+	color: gray;
+	font-size: 30px;
+	font-weight: bold;	
+}
+
+.login-form input{
+	display: block;
+	width: 100%;
+	border-radius:25px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	outline: none;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: black;
+	text-transform: uppercase;
+	border: none;
+	background: rgba(13,162,213, .1);
+}
+.login-form input[type="text"]{
+	text-transform: none;
+}
+.login-form input[type="password"]{
+	text-transform: none;
+}
+
+.login-form input[type="submit"]{
+	color: #fff;
+	background: #fab1a0;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;	
+}
+.login-form input[type="submit"]:hover{
+	background: #45aaf2;
+}
+
+.login-form a{
+	text-decoration: none;
+	color: gray;
+	text-transform: uppercase;
+}
+.clouds 
+{
+	background: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.clouds img 
+{
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	max-width: 100%;
+	animation: animate calc(2s * var(--i)) linear infinite;
+}
+
+@keyframes animate 
+{
+	0% 
+	{
+		opacity: 0;
+		transform: scale(1);
+		
+	}
+	25%, 75%
+	{
+		opacity: 1;
+	}
+	100%
+	{
+		opacity: 0;
+		transform: scale(2);
+	}
+}
+
