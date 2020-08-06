@@ -8,17 +8,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 <title>Insert title here</title>
+<script>
+
+</script>
 <script>
 function del(num){
 location.href = 
 	"${pageContext.request.contextPath }/DelBoardController?num="+num;
 }
 
+
+
 function delComment(comment_Num){
-	location.href = 
-		"${pageContext.request.contextPath }/CommentDelController?comment_Num="+comment_Num;
+			location.href = 
+				"${pageContext.request.contextPath }/CommentDelController?comment_Num="+comment_Num;
 	}
+
+
 </script>
 </head>
 <body>
@@ -94,15 +102,21 @@ function delComment(comment_Num){
 	        
 	        
 <!-- 댓글 출력  -->
-    
+<link rel="stylesheet" href="css/bootstrap.css">
+    <div class="container">
     <h3>댓글</h3>
     <br>
   
 	<c:if test="${not empty list }">
-		<table border="1" cellspacing="0">
+		<table class="table table-hover" border="1" cellspacing="0">
+		<thead>
 			<tr>
 				<th>작성자</th>
 				<th>댓글</th>
+		</thead>
+		
+		<div class="search row">
+		 
 
 			</tr>
 			<c:forEach var="c" items="${list }">
@@ -131,8 +145,8 @@ function delComment(comment_Num){
 
 	
 
-	
-	
-	
+	</div>
+	</div>
+	</div>
 </body>
 </html>

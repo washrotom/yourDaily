@@ -1,6 +1,8 @@
 package comment.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,22 +11,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 import comment.service.CommentService;
 import comment.service.CommentServiceImpl;
+
 import model.Comment;
-import model.Member;
+
 
 /**
- * Servlet implementation class CommentInsertController
+ * Servlet implementation class CommentListController
  */
-@WebServlet("/CommentInsertController")
-public class CommentInsertController extends HttpServlet {
+@WebServlet("/CommentListController")
+public class CommentListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommentInsertController() {
+    public CommentListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,31 +39,33 @@ public class CommentInsertController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html; charset=EUC-KR");
-		response.setCharacterEncoding("euc-kr");
+		// TODO Auto-generated method stub
 
-		// 기능을 제공할 서비스 객체 생성
-		CommentService service = new CommentServiceImpl();
+				// ��û�� ������ ���ڵ� ����
+				request.setCharacterEncoding("euc-kr");
+				response.setContentType("text/html; charset=EUC-KR");
+				response.setCharacterEncoding("euc-kr");
+
+				// ����� ������ ���� ��ü ����
+				CommentService service = new CommentServiceImpl();
+				
+				Comment c = new Comment();
+
+				// �� ��ü �˻� ��� ����
+				ArrayList<Comment> list = (ArrayList<Comment>) service.CommentAll(c);
+
+				// list�� request�� ����
+				request.setAttribute("list", list);
+				
+
+				// �۸�� ����������� �̵�
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/board/search.jsp");
+				if (dispatcher != null) {
+					dispatcher.forward(request, response);
+				}
 		
-		String comment_ID = request.getParameter("comment_ID");
-		String comment_Content = request.getParameter("comment_Content");
-		int comment_Bnum = Integer.parseInt(request.getParameter("comment_Bnum"));
-		
-		Comment c = new Comment();
-		c.setComment_ID(comment_ID);
-		c.setComment_Content(comment_Content);
-		c.setComment_Bnum(comment_Bnum);  
-		
-		service.writeComment(c);
-		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher
-				("/member/result.jsp");
-						if (dispatcher != null) {
-							dispatcher.forward(request, response);
-						}
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
