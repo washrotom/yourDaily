@@ -1,6 +1,7 @@
 package comment.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import board.service.Service;
+import board.service.ServiceImpl;
 import comment.service.CommentService;
 import comment.service.CommentServiceImpl;
+import model.Board;
 import model.Comment;
 import model.Member;
 
@@ -52,9 +56,34 @@ public class CommentInsertController extends HttpServlet {
 		
 		service.writeComment(c);
 		
+		Service service2 = new ServiceImpl();
+		
+
+		//   û  Ķ         б 
+		int num = Integer.parseInt(request.getParameter("num"));
+
+		//     ϳ   ˻          
+		Board b = service2.getBoard(num);
+		
+
+          c.setComment_Bnum(num); //여기만 수정
+
+		//      ü  ˻          
+		ArrayList<Comment> list = (ArrayList<Comment>) service.CommentAll(c);
+
+		// list   request       
+		request.setAttribute("list", list);
+
+		// b   request       
+		request.setAttribute("b", b);
+		request.setAttribute("c", c);
+		
+		
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher
-				("/member/result.jsp");
+				("/board/search.jsp");
 						if (dispatcher != null) {
 							dispatcher.forward(request, response);
 						}

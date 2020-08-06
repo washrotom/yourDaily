@@ -77,7 +77,7 @@ function delComment(comment_Num){
 	
 	<!--  ´ñ±Û ÀÛ¼º -->
 	
-	<form action="${pageContext.request.contextPath }/CommentInsertController" method="post">
+	<form action="${pageContext.request.contextPath }/CommentInsertController?num=${b.num}" method="post">
 	<table border="1" >
 	   <tr>
 		<th>id</th>
